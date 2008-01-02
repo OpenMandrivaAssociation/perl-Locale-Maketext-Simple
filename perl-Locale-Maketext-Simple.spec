@@ -15,6 +15,7 @@ Source:         http://www.cpan.org/modules/by-module/Locale/%{module}-%{version
 BuildRequires:	perl-devel
 %endif
 BuildArch:      noarch
+BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 Locale::Maketext::Simple is simple interface to Locale::Maketext::Lexicon,
