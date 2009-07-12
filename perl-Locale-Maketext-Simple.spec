@@ -1,21 +1,21 @@
-%define module	Locale-Maketext-Simple
-%define name	perl-%{module}
-%define version 0.20
-%define release %mkrel 1
+%define upstream_name	Locale-Maketext-Simple
+%define upstream_version 0.20
 
-Name:		    %{name}
-Version:	    %{version}
-Release:	    %{release}
+Name:		    perl-%{upstream_name}
+Version:	    %perl_convert_version %{upstream_version}
+Release:	    %mkrel 1
+
 License:	    MIT
 Group:		    Development/Perl
 Summary:	    Perl module to use other catalog formats in Maketext
-Url:            http://search.cpan.org/dist/%{module}/
-Source:         http://www.cpan.org/modules/by-module/Locale/%{module}-%{version}.tar.bz2
+Url:            http://search.cpan.org/dist/%{upstream_name}/
+Source0:        http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:      noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildRoot:	    %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Locale::Maketext::Simple is simple interface to Locale::Maketext::Lexicon,
@@ -24,7 +24,7 @@ to read from other localization formats, such as PO files, MO files,
 or from databases via the "Tie" interface.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
