@@ -14,8 +14,10 @@ Source0:        http://www.cpan.org/modules/by-module/Locale/%{upstream_name}-%{
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
+BuildRequires:	perl(Locale::Maketext::Lexicon)
 BuildArch:      noarch
 BuildRoot:	    %{_tmppath}/%{name}-%{version}-%{release}
+Requires:	perl(Locale::Maketext::Lexicon)
 
 %description
 Locale::Maketext::Simple is simple interface to Locale::Maketext::Lexicon,
