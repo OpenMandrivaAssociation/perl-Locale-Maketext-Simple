@@ -3,7 +3,7 @@
 
 Name:		    perl-%{upstream_name}
 Version:	    %perl_convert_version %{upstream_version}
-Release:	    %mkrel 2
+Release:	    %mkrel 3
 
 License:	    MIT
 Group:		    Development/Perl
@@ -30,10 +30,10 @@ or from databases via the "Tie" interface.
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{__make} test
-%make
+%make test
 
 %install
 rm -rf %{buildroot}
@@ -47,4 +47,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Locale
 %{_mandir}/man3/*
-
